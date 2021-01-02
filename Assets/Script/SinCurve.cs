@@ -19,6 +19,11 @@ public class SinCurve : MonoBehaviour
     {
         Renderer.sprite = sprite;
     }
+    public void SetSprite(Sprite sprite, Color color)
+    {
+        Renderer.color = color;
+        Renderer.sprite = sprite;
+    }
 
     private void OnEnable()
     {
