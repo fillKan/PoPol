@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -213,6 +214,24 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a04709480fa56845bc0433beac6f2cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Duration: 8
+  _ChangeTime: 3
+  _Colors:
+  - {r: 0.98039216, g: 0.44705883, b: 0.40784314, a: 1}
+  - {r: 0.20392157, g: 0.33333334, b: 0.54509807, a: 1}
+  - {r: 0.5764706, g: 0.58431375, b: 0.5921569, a: 1}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -223,7 +242,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.5764706, g: 0.58431375, b: 0.5921569, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -240,7 +259,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -381,7 +400,7 @@ GameObject:
   - component: {fileID: 1482445901}
   - component: {fileID: 1482445900}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,8 +422,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 187.1, y: -75.2}
-  m_SizeDelta: {x: 689.2133, y: 447.39575}
+  m_AnchoredPosition: {x: 0, y: 440}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1482445900
 MonoBehaviour:
@@ -425,18 +444,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC815\uC2E0\uC744 \uD574\uB9AC\uD558\uC5EC \uBCF4\uAD00\uD55C\uB2E4"
+  m_text: "\uD55C\uB300\uAC74\uC758 \uD3EC\uD2B8\uD3F4\uB9AC\uC624"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: af98f9132f9a0aa49b19264e118c20e4, type: 2}
-  m_sharedMaterial: {fileID: 873622933941734132, guid: af98f9132f9a0aa49b19264e118c20e4,
+  m_fontAsset: {fileID: 11400000, guid: 2f4dccfad55bfed4088f5bd391e4be3b, type: 2}
+  m_sharedMaterial: {fileID: 2974221221585001147, guid: 2f4dccfad55bfed4088f5bd391e4be3b,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283293685
+  m_fontColor: {r: 0.9607843, g: 0.8745098, b: 0.3019608, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -460,7 +479,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
