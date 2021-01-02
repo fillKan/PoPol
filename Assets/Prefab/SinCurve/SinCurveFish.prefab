@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1330448241457578265}
   - component: {fileID: 1330448241457578264}
   - component: {fileID: 1330448241457578266}
+  - component: {fileID: 6873799013594536557}
   m_Layer: 0
   m_Name: SinCurveFish
   m_TagString: Untagged
@@ -96,5 +97,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CurveScale: 1
-  _Period: 1
-  _ScaleMultiply: 1
+  _Period: 0.5
+  _ScaleMultiply: 1.2
+--- !u!95 &6873799013594536557
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330448241457578247}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4fbff20e5921046478e0f3667ccfde00, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

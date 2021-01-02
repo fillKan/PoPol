@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7957715213067580091}
   - component: {fileID: 7957715213067580090}
   m_Layer: 0
-  m_Name: SinCurve
+  m_Name: SinCurve_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9db44e32b60644aa62e273e099c1f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CurveScale: 1
-  _Period: 1
+  _CurveScale: 1.5
+  _Period: 0.5
   _ScaleMultiply: 1
 --- !u!1001 &7957715213606773747
 PrefabInstance:
