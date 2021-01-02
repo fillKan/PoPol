@@ -45,7 +45,10 @@ public class EggHatching : MonoBehaviour
             {
                 _Renderer.sprite = _DinoSprite;
             }
-            else _Renderer.sprite = _ChickSprite;
+            else 
+                _Renderer.sprite = _ChickSprite;
+
+            MainCamera.Instance.Shake(0.08f, 0.2f);
         }
         _Renderer.color = new Color(1, 1, 1, Mathf.Max(_MaxScale - distance, 0.15f));
     }

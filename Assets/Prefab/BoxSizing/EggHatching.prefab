@@ -104,6 +104,6 @@ MonoBehaviour:
     type: 3}
   _DinoSprite: {fileID: 4097562854217792327, guid: 11be8c98df81c3944a080038e519e295,
     type: 3}
-  _CursorRadius: 1.5
+  _CursorRadius: 1.2
   _MinScale: 1
   _MaxScale: 2
