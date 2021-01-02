@@ -5,15 +5,16 @@ public enum Coordinate { World, Local }
 
 public class PolarCoordMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Coordinate _Coordinate;
+    [SerializeField] private float _Speed;
+    [SerializeField] private float _Radius;
 
-    // Update is called once per frame
-    void Update()
+    private float _Theta;
+
+    private void Update()
     {
-        
+        transform.PolarCoord(_Radius, _Theta, _Coordinate);
+
+        _Theta += Time.deltaTime / _Radius * _Speed;
     }
 }
