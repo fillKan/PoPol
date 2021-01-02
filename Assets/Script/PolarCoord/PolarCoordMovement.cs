@@ -11,7 +11,7 @@ public class PolarCoordMovement : MonoBehaviour
 
     private float _Theta;
 
-    private void Update()
+    public void Update()
     {
         transform.PolarCoord(_Radius, _Theta, _Coordinate);
 
