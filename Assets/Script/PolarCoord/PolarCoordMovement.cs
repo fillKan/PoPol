@@ -15,6 +15,9 @@ public class PolarCoordMovement : MonoBehaviour
     {
         transform.PolarCoord(_Radius, _Theta, _Coordinate);
 
-        _Theta += Time.deltaTime / _Radius * _Speed;
+        if (_Radius != 0)
+        {
+            _Theta += Time.deltaTime / _Radius * _Speed;
+        }
     }
 }

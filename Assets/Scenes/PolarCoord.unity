@@ -174,7 +174,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 1967822612}
   - component: {fileID: 1967822611}
   m_Layer: 0
-  m_Name: SpriteSheet_Fish_3
+  m_Name: PolarCoordiator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -276,8 +276,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2392123743306124853, guid: cff2dba972dec51438459b3a0b409035,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: ddcaa936618743b4b9db82b5b04f8740, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
