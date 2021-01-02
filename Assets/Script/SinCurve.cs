@@ -12,7 +12,8 @@ public class SinCurve : MonoBehaviour
     [SerializeField] private SpriteRenderer Renderer;
 
     private Vector3 _OriginPosition;
-    private Vector3 _OriginScale;
+    private float _SumTime;
+
 
     public void SetSprite(Sprite sprite)
     {
@@ -21,14 +22,18 @@ public class SinCurve : MonoBehaviour
 
     private void OnEnable()
     {
+        _SumTime = 0f;
+
         _OriginPosition = transform.localPosition;
-        _OriginScale = transform.localScale;
+        Update();
     }
 
     private void Update()
     {
-        float sin = Mathf.Sin(Mathf.PI * Time.time * _Period) * _CurveScale;
-        float cos = Mathf.Cos(Mathf.PI * Time.time * _Period) * _CurveScale;
+        _SumTime += Time.deltaTime;
+
+        float sin = Mathf.Sin(Mathf.PI * _SumTime * _Period) * _CurveScale;
+        float cos = Mathf.Cos(Mathf.PI * _SumTime * _Period) * _CurveScale;
 
         transform.localPosition = _OriginPosition + Vector3.up * sin + Vector3.right * cos;
 

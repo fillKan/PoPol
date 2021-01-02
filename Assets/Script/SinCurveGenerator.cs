@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SinCurveGenerator : Singleton<SinCurveGenerator>
+public class SinCurveGenerator : MonoBehaviour
 {
     [SerializeField] private SinCurve _SinCurve;
     [SerializeField] private Sprite[] _Sprites;
