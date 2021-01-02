@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 public enum Coordinate { World, Local }
 
 public class PolarCoordMovement : MonoBehaviour
@@ -10,6 +11,12 @@ public class PolarCoordMovement : MonoBehaviour
     [SerializeField] private float _Radius;
 
     private float _Theta;
+
+    public void AdditionMovement(float speed, float radius)
+    {
+        _Speed += speed;
+        _Radius += radius;
+    }
 
     public void Update()
     {

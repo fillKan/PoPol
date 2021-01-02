@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +11,7 @@ public class PolarCoordControlar : MonoBehaviour
 
     private void Awake()
     {
-        _PolarCoords = _PolarCoords ?? new List<PolarCoordMovement>();
+        _PolarCoords = new List<PolarCoordMovement>();
     }
 
     private void Update()
@@ -22,6 +22,16 @@ public class PolarCoordControlar : MonoBehaviour
 
              polarCoord.Update();
             _PolarCoords.Add(polarCoord);
+        }
+        if (_PolarCoords.Count > 0)
+        {
+            _PolarCoords.ForEach(o =>
+            {
+                float v = Input.GetAxis("Vertical")   * Time.deltaTime * 2f;
+                float h = Input.GetAxis("Horizontal") * Time.deltaTime * 2f;
+
+                o.AdditionMovement(v, h);
+            });
         }
     }
 }
