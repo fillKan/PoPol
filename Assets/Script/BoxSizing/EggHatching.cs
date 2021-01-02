@@ -41,7 +41,7 @@ public class EggHatching : MonoBehaviour
         }
         else if (!_Renderer.sprite.Equals(_DinoSprite) && !_Renderer.sprite.Equals(_ChickSprite))
         {
-            if (Random.value < 0.2f)
+            if (Random.value < 0.05f)
             {
                 _Renderer.sprite = _DinoSprite;
             }
