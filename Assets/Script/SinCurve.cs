@@ -2,15 +2,24 @@
 
 public class SinCurve : MonoBehaviour
 {
+    [Header("Curve Info")]
     [Range(0.1f, 2f)]
     [SerializeField] private float _CurveScale;
     [SerializeField] private float _Period;
     [SerializeField] private float _ScaleMultiply;
 
+    [Header("Other Info")]
+    [SerializeField] private SpriteRenderer Renderer;
+
     private Vector3 _OriginPosition;
     private Vector3 _OriginScale;
 
-    private void Start()
+    public void SetSprite(Sprite sprite)
+    {
+        Renderer.sprite = sprite;
+    }
+
+    private void OnEnable()
     {
         _OriginPosition = transform.localPosition;
         _OriginScale = transform.localScale;
@@ -23,6 +32,6 @@ public class SinCurve : MonoBehaviour
 
         transform.localPosition = _OriginPosition + Vector3.up * sin + Vector3.right * cos;
 
-        transform.localScale = (Vector3.one * sin * _ScaleMultiply); // + (Vector3.right * cos * _ScaleMultiply);
+        transform.localScale = Vector3.one * sin * _ScaleMultiply;
     }
 }

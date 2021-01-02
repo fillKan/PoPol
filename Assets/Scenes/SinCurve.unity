@@ -121,6 +121,58 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &63632678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 63632679}
+  - component: {fileID: 63632680}
+  m_Layer: 0
+  m_Name: SinCurveGenetor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &63632679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63632678}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &63632680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63632678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f2cb3744e3cea4da9f9e195af4fd23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _SinCurve: {fileID: 1330448241457578266, guid: 6505cdc7ec77631499ee99263f37a39a,
+    type: 3}
+  _Sprites:
+  - {fileID: -4830201810184742088, guid: cff2dba972dec51438459b3a0b409035, type: 3}
+  - {fileID: -6228317827648701403, guid: cff2dba972dec51438459b3a0b409035, type: 3}
+  - {fileID: -1382454879565808231, guid: cff2dba972dec51438459b3a0b409035, type: 3}
+  - {fileID: -2392123743306124853, guid: cff2dba972dec51438459b3a0b409035, type: 3}
+  - {fileID: 6510600025969059659, guid: cff2dba972dec51438459b3a0b409035, type: 3}
+  - {fileID: 5082767012071693865, guid: cff2dba972dec51438459b3a0b409035, type: 3}
 --- !u!1 &1436268472
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +323,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SinCurve_2
       objectReference: {fileID: 0}
+    - target: {fileID: 8138970827247205980, guid: 70a02837efb410746a3120793a475803,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70a02837efb410746a3120793a475803, type: 3}
 --- !u!1001 &7957715213937025255
@@ -339,6 +396,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SinCurve_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7957715213067580092, guid: d167b4f75b9a46a4886ecb8514b76d7e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d167b4f75b9a46a4886ecb8514b76d7e, type: 3}

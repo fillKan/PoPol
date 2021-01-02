@@ -99,6 +99,7 @@ MonoBehaviour:
   _CurveScale: 1
   _Period: 0.5
   _ScaleMultiply: 1.2
+  Renderer: {fileID: 1330448241457578264}
 --- !u!95 &6873799013594536557
 Animator:
   serializedVersion: 3
