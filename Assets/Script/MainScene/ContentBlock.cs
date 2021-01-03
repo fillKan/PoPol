@@ -10,6 +10,7 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
     [SerializeField] private AlphaFader _AlphaFader;
     [SerializeField] private float _AnimationTime;
     [SerializeField] private Vector2 _TranslatePosition;
+    [SerializeField] private Color _BackgroundColor;
     
     private float _StartScale;
     private bool  _IsOpend;
@@ -26,9 +27,15 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
         if (_IsOpend)
         {
             _Controler.AnimationCall(this, _TranslatePosition, _AnimationTime, 1f, 1f, 0.4f, 0.4f);
+
+            ColorChanger.Instance.ColorChange(Color.white, _AnimationTime);
         }
         else
+        {
             _Controler.AnimationCall(this, _TranslatePosition, _AnimationTime, 0.05f, 1f, 0.4f, 1f);
+
+            ColorChanger.Instance.ColorChange(_BackgroundColor, _AnimationTime);
+        }
     }
     public void PlayAnimation(float time, float alpha, float scale)
     {

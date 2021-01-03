@@ -2,41 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorChanger : MonoBehaviour
+public class ColorChanger : Singleton<ColorChanger>
 {
-    [SerializeField] private float _Duration;
-    [SerializeField] private float _ChangeTime;
+    private IEnumerator _EColorChange;
 
-    [Space()]
-    [SerializeField] private Color[] _Colors;
-
-    private int _ColorIndex;
-
-    private void Awake()
+    public void ColorChange(Color color, float time)
     {
-        _ColorIndex = 0;
-
-        StartCoroutine(ColorChange());
-    }
-    private IEnumerator ColorChange()
-    {
-        while (enabled)
+        if (_EColorChange != null)
         {
-            Color cameraColor = Camera.main.backgroundColor;
-
-            for (float i = 0; i < _ChangeTime; i += Time.deltaTime)
-            {
-                float ratio = i / _ChangeTime;
-
-                Camera.main.backgroundColor = Color.Lerp(cameraColor, _Colors[_ColorIndex], ratio);
-
-                yield return null;
-            }
-            if (++_ColorIndex >= _Colors.Length)
-            {
-                _ColorIndex = 0;
-            }
-            yield return new WaitForSeconds(_Duration);
+            StopCoroutine(_EColorChange);
         }
+        StartCoroutine(_EColorChange = EColorChange(color, time));
+    }
+    private IEnumerator EColorChange(Color color, float time)
+    {
+        for (float i = 0; i < time; i += Time.deltaTime)
+        {
+            float ratio = Mathf.Min(i, time) / time;
+
+            Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, color, ratio);
+            yield return null;
+        }
+        _EColorChange = null;
     }
 }
