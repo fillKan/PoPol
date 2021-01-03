@@ -15,68 +15,47 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
     private bool  _IsOpend;
 
     private IEnumerator _Animation;
-    private IEnumerator _EFade;
 
     private void Awake()
     {
         _IsOpend = false;
         _StartScale = transform.localScale.x;
     }
-    public void Fade(float alpha, float time)
-    {
-        if (_EFade != null)
-        {
-            StopCoroutine(_EFade);
-        }
-        StartCoroutine(_EFade = EFade(alpha, time));
-    }
     public void OnPointerDown(PointerEventData eventData)
+    {
+        if (_IsOpend)
+        {
+            _Controler.AnimationCall(this, _TranslatePosition, _AnimationTime, 1f, 1f, 0.4f, 0.4f);
+        }
+        else
+            _Controler.AnimationCall(this, _TranslatePosition, _AnimationTime, 0.4f, 1f, 0.4f, 1f);
+    }
+    public void PlayAnimation(float time, float alpha, float scale)
     {
         if (_Animation != null)
         {
             StopCoroutine(_Animation);
         }
-        StartCoroutine(_Animation = Animation(!_IsOpend));
-        _Controler.Translate(_TranslatePosition, _AnimationTime);
+        StartCoroutine(_Animation = Animation(time, alpha, scale));
     }
-    private IEnumerator Animation(bool open)
+    private IEnumerator Animation(float time, float alpha, float scale)
     {
-        _IsOpend = open;
-        Vector2 targetScale;
+        _IsOpend = (scale > _StartScale);
 
-        if (open)
-        {
-            targetScale = Vector2.one;
-            _Controler.FadeCall(0.4f, this, _AnimationTime);
-        }
-        else
-        {
-            targetScale = _StartScale * Vector2.one;
-            _Controler.FadeCall(1f, this, _AnimationTime);
-        }
-        for (float i = 0f; i < _AnimationTime; i += Time.deltaTime)
-        {
-            i = Mathf.Min(1f, i);
+        Vector2 targetScale = Vector2.one * scale;
 
-            float ratio = i / _AnimationTime;
+        Color fadeColor = new Color(1, 1, 1, alpha);
+
+        for (float i = 0f; i < time; i += Time.deltaTime)
+        {
+            float ratio = Mathf.Min(time, i) / time;
+
             transform.localScale = Vector2.Lerp(transform.localScale, targetScale, ratio);
+            _Image.color = Color.Lerp(_Image.color, fadeColor, ratio);
 
             _Controler.LayoutRebuild();
             yield return null;
         }
         _Animation = null;
-    }
-    private IEnumerator EFade(float alpha, float time)
-    {
-        Color fadeColor = new Color(1, 1, 1, alpha);
-
-        for (float i = 0f; i < time; i += Time.deltaTime)
-        {
-            float ratio = i / time;
-            _Image.color = Color.Lerp(_Image.color, fadeColor, ratio);
-
-            yield return null;
-        }
-        _EFade = null;
     }
 }

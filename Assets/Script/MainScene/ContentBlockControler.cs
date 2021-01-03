@@ -14,23 +14,24 @@ public class ContentBlockControler : MonoBehaviour
     {
         LayoutRebuilder.ForceRebuildLayoutImmediate(_RectTransform);
     }
-    public void FadeCall(float alpha, ContentBlock other, float time)
+    public void AnimationCall(ContentBlock target, Vector2 translation, float time, float otherAlpha, float targetAlpha, float otherScale, float targeScale)
     {
         for (int i = 0; i < _ContentBlocks.Length; ++i)
         {
-            if (!_ContentBlocks[i].Equals(other))
+            if (!_ContentBlocks[i].Equals(target))
             {
-                _ContentBlocks[i].Fade(alpha, time);
+                _ContentBlocks[i].PlayAnimation(time, otherAlpha, otherScale);
+            }
+            else
+            {
+                _ContentBlocks[i].PlayAnimation(time, targetAlpha, targeScale);
             }
         }
-    }
-    public void Translate(Vector2 position, float time)
-    {
         if (_ETranslate != null)
         {
             StopCoroutine(_ETranslate);
         }
-        StartCoroutine(_ETranslate = ETranslate(position, time));
+        StartCoroutine(_ETranslate = ETranslate(translation, time));
     }
     private IEnumerator ETranslate(Vector2 targetPos, float time)
     {
