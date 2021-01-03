@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class ContentBlock : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private ContentBlockControler _Controler;
-    [SerializeField] private Image _Image;
+    [SerializeField] private AlphaFader _AlphaFader;
     [SerializeField] private float _AnimationTime;
     [SerializeField] private Vector2 _TranslatePosition;
     
@@ -37,6 +37,8 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
             StopCoroutine(_Animation);
         }
         StartCoroutine(_Animation = Animation(time, alpha, scale));
+
+        _AlphaFader.AlphaFade(alpha, time);
     }
     private IEnumerator Animation(float time, float alpha, float scale)
     {
@@ -51,7 +53,6 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
             float ratio = Mathf.Min(time, i) / time;
 
             transform.localScale = Vector2.Lerp(transform.localScale, targetScale, ratio);
-            //_Image.color = Color.Lerp(_Image.color, fadeColor, ratio);
 
             _Controler.LayoutRebuild();
             yield return null;

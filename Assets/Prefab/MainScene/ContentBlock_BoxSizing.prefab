@@ -667,6 +667,56 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3722940824215120076, guid: 308282a35ec64a14f9ea9c53f0d21573,
+        type: 3}
+      propertyPath: _Fonts.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722940824215120076, guid: 308282a35ec64a14f9ea9c53f0d21573,
+        type: 3}
+      propertyPath: _Images.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722940824215120076, guid: 308282a35ec64a14f9ea9c53f0d21573,
+        type: 3}
+      propertyPath: _Fonts.Array.data[0]
+      value: 
+      objectReference: {fileID: 8167931116179330232}
+    - target: {fileID: 3722940824215120076, guid: 308282a35ec64a14f9ea9c53f0d21573,
+        type: 3}
+      propertyPath: _Fonts.Array.data[1]
+      value: 
+      objectReference: {fileID: 6075847519397504532}
+    - target: {fileID: 3722940824215120076, guid: 308282a35ec64a14f9ea9c53f0d21573,
+        type: 3}
+      propertyPath: _Images.Array.data[0]
+      value: 
+      objectReference: {fileID: 927483800870778926}
+    - target: {fileID: 3722940824215120076, guid: 308282a35ec64a14f9ea9c53f0d21573,
+        type: 3}
+      propertyPath: _Images.Array.data[1]
+      value: 
+      objectReference: {fileID: 4080945149712710258}
+    - target: {fileID: 3722940824215120076, guid: 308282a35ec64a14f9ea9c53f0d21573,
+        type: 3}
+      propertyPath: _Images.Array.data[2]
+      value: 
+      objectReference: {fileID: 113201226892116604}
+    - target: {fileID: 3722940824215120076, guid: 308282a35ec64a14f9ea9c53f0d21573,
+        type: 3}
+      propertyPath: _Images.Array.data[3]
+      value: 
+      objectReference: {fileID: 161235653983624016}
+    - target: {fileID: 3722940824215120076, guid: 308282a35ec64a14f9ea9c53f0d21573,
+        type: 3}
+      propertyPath: _Images.Array.data[4]
+      value: 
+      objectReference: {fileID: 290310959449493635}
+    - target: {fileID: 3722940824215120076, guid: 308282a35ec64a14f9ea9c53f0d21573,
+        type: 3}
+      propertyPath: _Images.Array.data[5]
+      value: 
+      objectReference: {fileID: 5925952280257309457}
     - target: {fileID: 4144866961793614226, guid: 308282a35ec64a14f9ea9c53f0d21573,
         type: 3}
       propertyPath: m_Pivot.x
@@ -820,3 +870,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 83294016586431457}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4080945149712710258 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4144866961793614227, guid: 308282a35ec64a14f9ea9c53f0d21573,
+    type: 3}
+  m_PrefabInstance: {fileID: 83294016586431457}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4144866961793614224}
   - component: {fileID: 4144866961793614227}
   - component: {fileID: 4144866961793614238}
+  - component: {fileID: 3722940824215120076}
   m_Layer: 5
   m_Name: ContentBlock
   m_TagString: Untagged
@@ -88,6 +89,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Controler: {fileID: 0}
-  _Image: {fileID: 4144866961793614227}
+  _AlphaFader: {fileID: 3722940824215120076}
   _AnimationTime: 1
   _TranslatePosition: {x: 0, y: 0}
+--- !u!114 &3722940824215120076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4144866961793614229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a4a4de592fda4439fe155506e88261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Images: []
+  _Fonts: []
