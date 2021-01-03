@@ -28,7 +28,7 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
             _Controler.AnimationCall(this, _TranslatePosition, _AnimationTime, 1f, 1f, 0.4f, 0.4f);
         }
         else
-            _Controler.AnimationCall(this, _TranslatePosition, _AnimationTime, 0.4f, 1f, 0.4f, 1f);
+            _Controler.AnimationCall(this, _TranslatePosition, _AnimationTime, 0.05f, 1f, 0.4f, 1f);
     }
     public void PlayAnimation(float time, float alpha, float scale)
     {
@@ -51,7 +51,7 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
             float ratio = Mathf.Min(time, i) / time;
 
             transform.localScale = Vector2.Lerp(transform.localScale, targetScale, ratio);
-            _Image.color = Color.Lerp(_Image.color, fadeColor, ratio);
+            //_Image.color = Color.Lerp(_Image.color, fadeColor, ratio);
 
             _Controler.LayoutRebuild();
             yield return null;
