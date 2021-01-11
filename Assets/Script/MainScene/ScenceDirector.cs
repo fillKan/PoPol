@@ -22,15 +22,14 @@ public class ScenceDirector : MonoBehaviour
         {
             if (_MoveTarget == null)
             {
-                transform.position = _StartPosition;
-                transform.Translate(0, 0, -10f);
+                MainCamera.Instance.Move(2.5f, _StartPosition, _TargetPosition);
             }
             else
             {
                 _MoveTarget.localPosition = _StartPosition;
             }
             StartCoroutine(_ECameraMove = ECameraMove(_TargetPosition, 2.5f));
-        }
+        };
         if (_UsingSavedColor)
         {
             Camera.main.backgroundColor = GameStateSaver.Instance.CameraColor;
@@ -52,7 +51,8 @@ public class ScenceDirector : MonoBehaviour
             }
             if (_UsingAwakeMove)
             {
-                StartCoroutine(_ECameraMove = ECameraMove(_StartPosition, 2.5f, () => SceneManager.LoadScene(0)));
+                MainCamera.Instance.Move(2.5f, _TargetPosition, _StartPosition, 
+                    () => { SceneManager.LoadScene(0); });
             }
             else
             {
