@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 5758680925186456345}
   - component: {fileID: 7535230743680900979}
   m_Layer: 0
-  m_Name: Introduction (1)
+  m_Name: SideAlphaFader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1381,6 +1381,11 @@ PrefabInstance:
       propertyPath: _Title
       value: 
       objectReference: {fileID: 8167931116179330232}
+    - target: {fileID: 4144866961793614238, guid: 308282a35ec64a14f9ea9c53f0d21573,
+        type: 3}
+      propertyPath: _SideAlphaFader
+      value: 
+      objectReference: {fileID: 7535230743680900979}
     - target: {fileID: 4144866961793614238, guid: 308282a35ec64a14f9ea9c53f0d21573,
         type: 3}
       propertyPath: _AttachSceneIndex

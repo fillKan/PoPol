@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MainScence : MonoBehaviour
 {
+    private Animator ScrollAnimator;
+
     private void Update()
     {
         if (!Application.isEditor)

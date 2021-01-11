@@ -88,10 +88,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376271d6c338e8540b6a29d96e6ac93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _AttachSceneIndex: 0
   _Controler: {fileID: 0}
-  _AlphaFader: {fileID: 3722940824215120076}
-  _AnimationTime: 1
+  _ThisAlphaFader: {fileID: 3722940824215120076}
+  _SideAlphaFader: {fileID: 0}
   _TranslatePosition: {x: 0, y: 0}
+  _BackgroundColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3722940824215120076
 MonoBehaviour:
   m_ObjectHideFlags: 0

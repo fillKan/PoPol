@@ -1059,7 +1059,6 @@ MonoBehaviour:
   _MoveTarget: {fileID: 1831129426}
   _TargetPosition: {x: 0, y: 0}
   _StartPosition: {x: 0, y: 980}
-  _UsingSavedColor: 0
   _UsingColorChanger: 0
 --- !u!114 &1364285837
 MonoBehaviour:
@@ -1210,6 +1209,11 @@ PrefabInstance:
     - target: {fileID: 4080945149712710271, guid: 8e9bea0c42c59cb4aa329f6490d1e902,
         type: 3}
       propertyPath: _Controler
+      value: 
+      objectReference: {fileID: 142242023}
+    - target: {fileID: 4080945149712710271, guid: 8e9bea0c42c59cb4aa329f6490d1e902,
+        type: 3}
+      propertyPath: _Controller
       value: 
       objectReference: {fileID: 142242023}
     - target: {fileID: 4080945149712710271, guid: 8e9bea0c42c59cb4aa329f6490d1e902,
@@ -1365,6 +1369,11 @@ PrefabInstance:
     - target: {fileID: 4080945149712710271, guid: b03dae28a61bef44bac02f595c2722c1,
         type: 3}
       propertyPath: _Controler
+      value: 
+      objectReference: {fileID: 142242023}
+    - target: {fileID: 4080945149712710271, guid: b03dae28a61bef44bac02f595c2722c1,
+        type: 3}
+      propertyPath: _Controller
       value: 
       objectReference: {fileID: 142242023}
     - target: {fileID: 4080945149712710271, guid: b03dae28a61bef44bac02f595c2722c1,
@@ -1624,6 +1633,11 @@ PrefabInstance:
     - target: {fileID: 4080945149712710271, guid: 260cbf6257137b947a1c99ba24a98db2,
         type: 3}
       propertyPath: _Controler
+      value: 
+      objectReference: {fileID: 142242023}
+    - target: {fileID: 4080945149712710271, guid: 260cbf6257137b947a1c99ba24a98db2,
+        type: 3}
+      propertyPath: _Controller
       value: 
       objectReference: {fileID: 142242023}
     - target: {fileID: 4080945149712710271, guid: 260cbf6257137b947a1c99ba24a98db2,
