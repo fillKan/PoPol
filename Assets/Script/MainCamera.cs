@@ -80,6 +80,6 @@ public class MainCamera : Singleton<MainCamera>
             _MainCamera.backgroundColor = Color.Lerp(_MainCamera.backgroundColor, color, ratio);
             yield return null;
         }
-        yield return null;
+        _ColorRoutine.FinshRoutine();
     }
 }
