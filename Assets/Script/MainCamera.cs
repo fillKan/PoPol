@@ -19,11 +19,16 @@ public class MainCamera : Singleton<MainCamera>
 
     public void Shake(float power, float time)
     {
-        _ShakeRoutine.StartRoutine(EShake(power, time));
+        if (!_MoveRoutine.IsDuration())
+        {
+            _ShakeRoutine.StartRoutine(EShake(power, time));
+        }
     }
     public void Move(float time, Vector2 start, Vector2 goal, System.Action overAction = null)
     {
-        transform.parent.position = start;
+        transform.position = start;
+
+        _ShakeRoutine.StopRoutine();
         _MoveRoutine.StartRoutine(EMove(time, goal));
 
         void OverAction()
@@ -37,12 +42,14 @@ public class MainCamera : Singleton<MainCamera>
     // =================== IEnumator =================== //
     private IEnumerator EShake(float power, float time)
     {
+        Vector2 startPosition = transform.position;
+
         for (float i = 0; i < time; i += Time.deltaTime)
         {
             i = Mathf.Min(i, time);
             power = Mathf.Lerp(power, 0, i / time);
 
-            transform.localPosition = Random.insideUnitCircle * power;
+            transform.position = startPosition + Random.insideUnitCircle * power;
             transform.Translate(0, 0, -10f);
 
             yield return null;
@@ -51,14 +58,12 @@ public class MainCamera : Singleton<MainCamera>
     }
     private IEnumerator EMove(float time, Vector2 position)
     {
-        Transform parent = transform.parent;
-
         for (float i = 0f; i < time; i += Time.deltaTime)
         {
             float ratio = Mathf.Min(i, time) / time;
 
-            parent.position = Vector2.Lerp(transform.position, position, ratio);
-            parent.Translate(0, 0, -10f);
+            transform.position = Vector2.Lerp(transform.position, position, ratio);
+            transform.Translate(0, 0, -10f);
 
             yield return null;
         }
