@@ -4,38 +4,33 @@ using UnityEngine;
 
 public class MainCamera : Singleton<MainCamera>
 {
-    private IEnumerator _EShake;
-    private Vector2 _OriginPosition;
+    private Coroutine _ShakeRoutine;
 
+    private void Awake()
+    {
+        _ShakeRoutine = new Coroutine(this);
+        _ShakeRoutine.RoutineStopEvent += () => 
+        {
+            transform.localPosition = Vector2.zero;
+            transform.Translate(0, 0, -10f);
+        };
+    }
     public void Shake(float power, float time)
     {
-        if (_EShake != null)
-        {
-            StopCoroutine(_EShake);
-            _EShake = null;
-
-            ShakeOverAction();
-        }
-        StartCoroutine(_EShake = EShake(power, time));
-    }
-    private void ShakeOverAction()
-    {
-        transform.position = _OriginPosition;
-        transform.Translate(0, 0, -10f);
+        _ShakeRoutine.StartRoutine(EShake(power, time));
     }
     private IEnumerator EShake(float power, float time)
     {
-        _OriginPosition = transform.position;
-
         for (float i = 0; i < time; i += Time.deltaTime)
         {
-            i = Mathf.Min(1f, i);
+            i = Mathf.Min(i, time);
+            power = Mathf.Lerp(power, 0, i / time);
 
-            transform.position = _OriginPosition + Random.insideUnitCircle * Mathf.Lerp(power, 0, i / time);
+            transform.localPosition = Random.insideUnitCircle * power;
             transform.Translate(0, 0, -10f);
 
             yield return null;
         }
-        ShakeOverAction();
+        _ShakeRoutine.FinshRoutine();
     }
 }
