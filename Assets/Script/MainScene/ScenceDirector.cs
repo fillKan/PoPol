@@ -10,10 +10,14 @@ public class ScenceDirector : MonoBehaviour
     [SerializeField] private Vector2 _TargetPosition;
     [SerializeField] private Vector2 _StartPosition;
 
+    [SerializeField] private bool _UsingSavedColor;
+    [SerializeField] private bool _UsingColorChanger;
+
     private IEnumerator _ECameraMove;
 
     private void Awake()
     {
+
         if (_UsingAwakeMove)
         {
             if (_MoveTarget == null)
@@ -27,6 +31,10 @@ public class ScenceDirector : MonoBehaviour
             }
             StartCoroutine(_ECameraMove = ECameraMove(_TargetPosition, 2.5f));
         }
+        if (_UsingSavedColor)
+        {
+            Camera.main.backgroundColor = GameStateSaver.Instance.CameraColor;
+        }
     }
     private void Update()
     {
@@ -36,7 +44,20 @@ public class ScenceDirector : MonoBehaviour
             {
                 StopCoroutine(_ECameraMove);
             }
-            StartCoroutine(_ECameraMove = ECameraMove(_StartPosition, 2.5f, () => SceneManager.LoadScene(0)));
+            GameStateSaver.Instance.CameraColor = Camera.main.backgroundColor;
+            
+            if (_UsingColorChanger)
+            {
+                ColorChanger.Instance.ColorChange(Color.white, 2.4f);
+            }
+            if (_UsingAwakeMove)
+            {
+                StartCoroutine(_ECameraMove = ECameraMove(_StartPosition, 2.5f, () => SceneManager.LoadScene(0)));
+            }
+            else
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
     private IEnumerator ECameraMove(Vector2 poistion, float time, Action moveOverAction = null)

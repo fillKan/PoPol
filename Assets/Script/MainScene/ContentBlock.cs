@@ -8,6 +8,7 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private ContentBlockControler _Controler;
     [SerializeField] private AlphaFader _AlphaFader;
+    [SerializeField] private AlphaFader _IntroductionAlphaFader;
     [SerializeField] private float _AnimationTime;
     [SerializeField] private Vector2 _TranslatePosition;
     [SerializeField] private Color _BackgroundColor;
@@ -22,6 +23,10 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
     {
         _IsOpend = false;
         _StartScale = transform.localScale.x;
+    }
+    private void Start()
+    {
+        _IntroductionAlphaFader.SetAlpha(0f);
     }
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -62,6 +67,14 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
     {
         _IsOpend = (scale > _StartScale);
 
+        if (_IsOpend)
+        {
+            _IntroductionAlphaFader.AlphaFade(1f, time);
+        }
+        else
+        {
+            _IntroductionAlphaFader.AlphaFade(0f, time);
+        }
         Vector2 targetScale = Vector2.one * scale;
 
         Color fadeColor = new Color(1, 1, 1, alpha);

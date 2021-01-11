@@ -1,0 +1,17 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MainScence : MonoBehaviour
+{
+    private void Update()
+    {
+        if (!Application.isEditor)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+        }
+    }
+}

@@ -11,6 +11,12 @@ public class PolarCoordMovement : MonoBehaviour
     [SerializeField] private float _Radius;
 
     private float _Theta;
+    private Vector2 _Offset;
+
+    private void Awake()
+    {
+        _Offset = transform.position;
+    }
 
     public void AdditionMovement(float speed, float radius)
     {

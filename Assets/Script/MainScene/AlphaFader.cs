@@ -27,6 +27,23 @@ public class AlphaFader : MonoBehaviour
             o_Fonts[i] = _Fonts[i].color;
         }
     }
+    public void SetAlpha(float alpha)
+    {
+        Color targetColor;
+
+        for (int i = 0; i < _Images.Length; ++i)
+        {
+            targetColor = new Color(o_Images[i].r, o_Images[i].g, o_Images[i].b, alpha);
+
+            _Images[i].color = targetColor;
+        }
+        for (int i = 0; i < _Fonts.Length; ++i)
+        {
+            targetColor = new Color(o_Fonts[i].r, o_Fonts[i].g, o_Fonts[i].b, alpha);
+
+            _Fonts[i].color = targetColor;
+        }
+    }
     public void AlphaFade(float alpha, float time)
     {
         if (_EAlphaFade != null)
