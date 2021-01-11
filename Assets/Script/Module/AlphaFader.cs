@@ -11,10 +11,12 @@ public class AlphaFader : MonoBehaviour
     private Color[] o_Images;
     private Color[] o_Fonts;
 
-    private IEnumerator _EAlphaFade;
+    private Coroutine FinshRoutine;
 
     private void Awake()
     {
+        FinshRoutine = new Coroutine(this);
+
         o_Images = new Color[_Images.Length];
         for (int i = 0; i < o_Images.Length; ++i)
         {
@@ -46,11 +48,7 @@ public class AlphaFader : MonoBehaviour
     }
     public void AlphaFade(float alpha, float time)
     {
-        if (_EAlphaFade != null)
-        {
-            StopCoroutine(_EAlphaFade);
-        }
-        StartCoroutine(_EAlphaFade = EAlphaFade(alpha, time));
+        FinshRoutine.StartRoutine(EAlphaFade(alpha, time));
     }
     private IEnumerator EAlphaFade(float alphaPercent, float time)
     {
@@ -74,6 +72,6 @@ public class AlphaFader : MonoBehaviour
             }
             yield return null;
         }
-        _EAlphaFade = null;
+        FinshRoutine.FinshRoutine();
     }
 }
