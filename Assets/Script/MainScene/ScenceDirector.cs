@@ -47,7 +47,7 @@ public class ScenceDirector : MonoBehaviour
             
             if (_UsingColorChanger)
             {
-                ColorChanger.Instance.ColorChange(Color.white, 2.4f);
+                MainCamera.Instance.ColorChange(2.4f, Color.white);
             }
             if (_UsingAwakeMove)
             {

@@ -36,13 +36,13 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
             {
                 _Controler.AnimationCall(this, _TranslatePosition, _AnimationTime, 1f, 1f, 0.4f, 0.4f);
 
-                ColorChanger.Instance.ColorChange(Color.white, _AnimationTime);
+                MainCamera.Instance.ColorChange(_AnimationTime, Color.white);
             }
             else
             {
                 _Controler.AnimationCall(this, _TranslatePosition, _AnimationTime, 0.05f, 1f, 0.4f, 1f);
 
-                ColorChanger.Instance.ColorChange(_BackgroundColor, _AnimationTime);
+                MainCamera.Instance.ColorChange(_AnimationTime, _BackgroundColor);
             }
         }
         else if (Input.GetMouseButtonDown(1))

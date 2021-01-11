@@ -3,11 +3,17 @@ using UnityEngine;
 
 public class MainCamera : Singleton<MainCamera>
 {
+    private Camera _MainCamera;
+
     private Coroutine _ShakeRoutine;
+    private Coroutine _ColorRoutine;
     private Coroutine  _MoveRoutine;
 
     private void Awake()
     {
+        Debug.Assert(TryGetComponent(out _MainCamera));
+
+        _ColorRoutine = new Coroutine(this);
         _ShakeRoutine = new Coroutine(this);
         _ShakeRoutine.RoutineStopEvent += () => 
         {
@@ -33,7 +39,10 @@ public class MainCamera : Singleton<MainCamera>
         }
         _MoveRoutine.RoutineStopEvent += OverAction;
     }
-
+    public void ColorChange(float time, Color color)
+    {
+        _ColorRoutine.StartRoutine(EColorChange(time, color));
+    }
     // =================== IEnumator =================== //
     private IEnumerator EShake(float power, float time)
     {
@@ -61,5 +70,16 @@ public class MainCamera : Singleton<MainCamera>
             yield return null;
         }
         _MoveRoutine.FinshRoutine();
+    }
+    private IEnumerator EColorChange(float time, Color color)
+    {
+        for (float i = 0; i < time; i += Time.deltaTime)
+        {
+            float ratio = Mathf.Min(i, time) / time;
+
+            _MainCamera.backgroundColor = Color.Lerp(_MainCamera.backgroundColor, color, ratio);
+            yield return null;
+        }
+        yield return null;
     }
 }
