@@ -19,16 +19,11 @@ public class MainCamera : Singleton<MainCamera>
 
     public void Shake(float power, float time)
     {
-        if (!_MoveRoutine.IsDuration())
-        {
-            _ShakeRoutine.StartRoutine(EShake(power, time));
-        }
+        _ShakeRoutine.StartRoutine(EShake(power, time));
     }
     public void Move(float time, Vector2 start, Vector2 goal, System.Action overAction = null)
     {
-        transform.position = start;
-
-        _ShakeRoutine.StopRoutine();
+        transform.parent.position = start;
         _MoveRoutine.StartRoutine(EMove(time, goal));
 
         void OverAction()
@@ -42,15 +37,13 @@ public class MainCamera : Singleton<MainCamera>
     // =================== IEnumator =================== //
     private IEnumerator EShake(float power, float time)
     {
-        Vector2 startPosition = transform.position;
-
         for (float i = 0; i < time; i += Time.deltaTime)
         {
             i = Mathf.Min(i, time);
             power = Mathf.Lerp(power, 0, i / time);
 
-            transform.position = startPosition + Random.insideUnitCircle * power;
-            transform.Translate(0, 0, -10f);
+            transform.localPosition = Random.insideUnitCircle * power;
+            transform.Translate(0, 0, -10f, Space.Self);
 
             yield return null;
         }
@@ -62,8 +55,8 @@ public class MainCamera : Singleton<MainCamera>
         {
             float ratio = Mathf.Min(i, time) / time;
 
-            transform.position = Vector2.Lerp(transform.position, position, ratio);
-            transform.Translate(0, 0, -10f);
+            transform.parent.position = Vector2.Lerp(transform.position, position, ratio);
+            transform.parent.Translate(0, 0, -10f);
 
             yield return null;
         }
