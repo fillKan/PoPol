@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/SinCurve.unity
+    guid: a3d37b415d8dc6b46b9545fc74b45859
+  - enabled: 1
+    path: Assets/Scenes/BoxSizing.unity
+    guid: aa7eedd934c060c4faf5bbe12e5331a6
+  - enabled: 1
+    path: Assets/Scenes/PolarCoord.unity
+    guid: fecd737c4ab373c45a32e4d222a3d1ca
   m_configObjects: {}

@@ -5,12 +5,18 @@ using UnityEngine.UI;
 
 public class PolarCoordControlar : MonoBehaviour
 {
+    [Range(0f, 1f)]
+    [SerializeField] private float _Probablity;
     [SerializeField] private PolarCoordMovement _PolarCoordMovement;
+    [SerializeField] private PolarCoordMovement _Special;
 
     private List<PolarCoordMovement> _PolarCoords;
+    private float _StartCameraScale;
 
     private void Awake()
     {
+        _StartCameraScale = Camera.main.orthographicSize;
+
         _PolarCoords = new List<PolarCoordMovement>();
     }
 
@@ -18,7 +24,14 @@ public class PolarCoordControlar : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            var polarCoord = Instantiate(_PolarCoordMovement, Vector3.zero, Quaternion.identity);
+            PolarCoordMovement polarCoord;
+
+            if (Random.value <= _Probablity)
+            {
+                polarCoord = Instantiate(_Special, Vector2.zero, Quaternion.identity);
+            }
+            else 
+                polarCoord = Instantiate(_PolarCoordMovement, Vector2.zero, Quaternion.identity);
 
              polarCoord.Update();
             _PolarCoords.Add(polarCoord);

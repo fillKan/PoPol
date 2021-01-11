@@ -17,39 +17,60 @@ public class EggHatching : MonoBehaviour
     [SerializeField] private float _MinScale;
     [SerializeField] private float _MaxScale;
 
-    private void Update()
+    private void OnEnable()
+    {
+        StartCoroutine(HatchingRoutine());
+    }
+    private IEnumerator HatchingRoutine()
     {
         Vector2 CursorPoint()
         {
             return Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
-        float distance
-            = Mathf.Max(Vector2.Distance(transform.position, CursorPoint()) - _CursorRadius, 0f);
-
-        transform.localScale
-            = Vector2.one * Mathf.Max(_MaxScale - distance, _MinScale);
-
-        float ratio = Mathf.InverseLerp(_MaxScale, _MinScale, transform.localScale.x);
-
-        if (ratio > 0.75f)
+        for (float i = 0f; i < 2.5f; i += Time.deltaTime)
         {
-            _Renderer.sprite = _EggSprite;
+            float distance
+                = Mathf.Max(Vector2.Distance(transform.position, CursorPoint()) - _CursorRadius, 0f);
+
+            transform.localScale
+                = Vector2.one * Mathf.Max(_MaxScale - distance, _MinScale);
+
+            _Renderer.color = new Color(1, 1, 1, Mathf.Max(_MaxScale - distance, 0.15f));
+
+            yield return null;
         }
-        else if (ratio > 0.3f)
+        while (gameObject.activeSelf)
         {
-            _Renderer.sprite = _HatchingSprite;
-        }
-        else if (!_Renderer.sprite.Equals(_DinoSprite) && !_Renderer.sprite.Equals(_ChickSprite))
-        {
-            if (Random.value < 0.05f)
+            float distance
+                = Mathf.Max(Vector2.Distance(transform.position, CursorPoint()) - _CursorRadius, 0f);
+
+            transform.localScale
+                = Vector2.one * Mathf.Max(_MaxScale - distance, _MinScale);
+
+            float ratio = Mathf.InverseLerp(_MaxScale, _MinScale, transform.localScale.x);
+
+            if (ratio > 0.75f)
             {
-                _Renderer.sprite = _DinoSprite;
+                _Renderer.sprite = _EggSprite;
             }
-            else 
-                _Renderer.sprite = _ChickSprite;
+            else if (ratio > 0.3f)
+            {
+                _Renderer.sprite = _HatchingSprite;
+            }
+            else if (!_Renderer.sprite.Equals(_DinoSprite) && !_Renderer.sprite.Equals(_ChickSprite))
+            {
+                if (Random.value < 0.05f)
+                {
+                    _Renderer.sprite = _DinoSprite;
+                }
+                else
+                    _Renderer.sprite = _ChickSprite;
 
-            MainCamera.Instance.Shake(0.08f, 0.2f);
+                MainCamera.Instance.Shake(0.08f, 0.2f);
+            }
+            _Renderer.color = new Color(1, 1, 1, Mathf.Max(_MaxScale - distance, 0.15f));
+
+            yield return null;
         }
-        _Renderer.color = new Color(1, 1, 1, Mathf.Max(_MaxScale - distance, 0.15f));
     }
 }
