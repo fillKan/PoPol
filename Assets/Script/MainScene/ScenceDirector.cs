@@ -12,10 +12,11 @@ public class ScenceDirector : MonoBehaviour
 
     [SerializeField] private bool _UsingColorChanger;
 
-    private IEnumerator _ECameraMove;
+    private Coroutine _ObjectMove;
 
     private void Awake()
     {
+        _ObjectMove = new Coroutine(this);
 
         if (_UsingAwakeMove)
         {
@@ -25,19 +26,16 @@ public class ScenceDirector : MonoBehaviour
             }
             else
             {
-                _MoveTarget.localPosition = _StartPosition;
+                _ObjectMove.StartRoutine(EObjectMove(_TargetPosition, 2.5f));
             }
-            StartCoroutine(_ECameraMove = ECameraMove(_TargetPosition, 2.5f));
         };
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex != 0)
         {
-            if (_ECameraMove != null)
-            {
-                StopCoroutine(_ECameraMove);
-            }            
+            _ObjectMove.StopRoutine();
+
             if (_UsingColorChanger)
             {
                 MainCamera.Instance.ColorChange(2.4f, Color.white);
@@ -53,26 +51,17 @@ public class ScenceDirector : MonoBehaviour
             }
         }
     }
-    private IEnumerator ECameraMove(Vector2 poistion, float time, Action moveOverAction = null)
+    private IEnumerator EObjectMove(Vector2 poistion, float time)
     {
+        _MoveTarget.localPosition = _StartPosition;
+
         for (float i = 0f; i < time; i += Time.deltaTime)
         {
             float ratio = Mathf.Min(i, time) / time;
 
-            if (_MoveTarget == null)
-            {
-                transform.position = Vector2.Lerp(transform.position, poistion, ratio);
-
-                transform.Translate(0, 0, -10f);
-            }
-            else
-            {
-                _MoveTarget.localPosition = Vector2.Lerp(_MoveTarget.localPosition, poistion, ratio);
-            }
+            _MoveTarget.localPosition = Vector2.Lerp(_MoveTarget.localPosition, poistion, ratio);
             yield return null;
         }
-        moveOverAction?.Invoke();
-
-        _ECameraMove = null;
+        _ObjectMove.FinshRoutine();
     }
 }
