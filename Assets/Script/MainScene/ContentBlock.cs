@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,9 +10,15 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
         Open, Revert, Close
     }
     public const float AnimationTime = 1f;
+
+    public int AttachSceneIndex
+    {
+        get => _AttachSceneIndex;
+    }
     public Color BackGroundColor
     { get => _BackgroundColor; }
 
+    public event Action<ContentBlock> SelectedClickEvent;
 
     [SerializeField] private int _AttachSceneIndex;
     [SerializeField] private ContentBlockController _Controller;
@@ -46,7 +53,7 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
         {
             if (_IsOpend)
             {
-                SceneLoader.Instance.SceneLoad(_AttachSceneIndex);
+                SelectedClickEvent?.Invoke(this);
             }
         }
     }
