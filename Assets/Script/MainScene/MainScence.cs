@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class MainScence : MonoBehaviour
 {
-    private const float SceneLoadTime = 2.5f;
+    public const float LoadTime = 1.5f;
+    public const float LoadBeforeTime = 1.4f;
 
     private readonly Vector2 StartTrans = new Vector2(0, 980f);
 
@@ -23,9 +24,9 @@ public class MainScence : MonoBehaviour
         {
             contents[i].SelectedClickEvent += o =>
             {
-                _ExitText.AlphaFade(1f, 1.5f);
+                _ExitText.AlphaFade(1f, LoadBeforeTime);
 
-                _ScrollVlewTrans.StartRoutine(ScrollVlewTrans(StartTrans, 2.5f));
+                _ScrollVlewTrans.StartRoutine(ScrollVlewTrans(StartTrans, LoadTime));
                 _ScrollVlewTrans.RoutineStopEvent += () =>
                 {
                     SceneManager.LoadScene(o.AttachSceneIndex);
@@ -34,7 +35,7 @@ public class MainScence : MonoBehaviour
         }
         _ScrollVlew.transform.localPosition = StartTrans;
 
-        _ScrollVlewTrans.StartRoutine(ScrollVlewTrans(Vector2.zero, 2.5f));
+        _ScrollVlewTrans.StartRoutine(ScrollVlewTrans(Vector2.zero, LoadTime));
     }
     private void Start()
     {

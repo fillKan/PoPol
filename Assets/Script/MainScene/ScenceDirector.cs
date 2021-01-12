@@ -18,7 +18,7 @@ public class ScenceDirector : MonoBehaviour
 
         if (_UsingAwakeMove)
         {
-            MainCamera.Instance.Move(2.5f, _StartPosition, _TargetPosition);
+            MainCamera.Instance.Move(MainScence.LoadTime, _StartPosition, _TargetPosition);
         };
     }
     private void Update()
@@ -29,11 +29,11 @@ public class ScenceDirector : MonoBehaviour
 
             if (_UsingColorChanger)
             {
-                MainCamera.Instance.ColorChange(2.4f, Color.white);
+                MainCamera.Instance.ColorChange(MainScence.LoadBeforeTime, Color.white);
             }
             if (_UsingAwakeMove)
             {
-                MainCamera.Instance.Move(2.5f, _TargetPosition, _StartPosition, 
+                MainCamera.Instance.Move(MainScence.LoadTime, _TargetPosition, _StartPosition, 
                     () => { SceneManager.LoadScene(0); });
             }
             else
