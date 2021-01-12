@@ -6,14 +6,16 @@ public class MainScence : MonoBehaviour
 {
     private const float SceneLoadTime = 2.5f;
 
-    [SerializeField] private TMPro.TextMeshProUGUI _ExitText;
+    private readonly Vector2 StartTrans = new Vector2(0, 980f);
+
+    [SerializeField] private AlphaFader _ExitText;
     [SerializeField] private RectTransform _ScrollVlew;
 
-    private Coroutine _SceneLoad;
+    private Coroutine _ScrollVlewTrans;
 
-    private void Start()
+    private void Awake()
     {
-        _SceneLoad = new Coroutine(this);
+        _ScrollVlewTrans = new Coroutine(this);
 
         var contents = FindObjectsOfType<ContentBlock>();
 
@@ -21,11 +23,23 @@ public class MainScence : MonoBehaviour
         {
             contents[i].SelectedClickEvent += o =>
             {
-                _SceneLoad.StartRoutine(SceneLoad(o.AttachSceneIndex));
+                _ExitText.AlphaFade(1f, 1.5f);
+
+                _ScrollVlewTrans.StartRoutine(ScrollVlewTrans(StartTrans, 2.5f));
+                _ScrollVlewTrans.RoutineStopEvent += () =>
+                {
+                    SceneManager.LoadScene(o.AttachSceneIndex);
+                };
             };
         }
-    }
+        _ScrollVlew.transform.localPosition = StartTrans;
 
+        _ScrollVlewTrans.StartRoutine(ScrollVlewTrans(Vector2.zero, 2.5f));
+    }
+    private void Start()
+    {
+        _ExitText.SetAlpha(0f);
+    }
     private void Update()
     {
         if (!Application.isEditor)
@@ -37,20 +51,15 @@ public class MainScence : MonoBehaviour
         }
     }
 
-    private IEnumerator SceneLoad(int index)
+    private IEnumerator ScrollVlewTrans(Vector2 poistion, float time)
     {
-        for (float i = 0f; i < SceneLoadTime; i += Time.deltaTime)
+        for (float i = 0f; i < time; i += Time.deltaTime)
         {
-            float ratio = Mathf.Min(i, SceneLoadTime) / SceneLoadTime;
+            float ratio = Mathf.Min(i, time) / time;
 
-            _ExitText.color = Color.Lerp(_ExitText.color, Color.white, ratio);
-
-            _ScrollVlew.localPosition = Vector2.Lerp(_ScrollVlew.localPosition, new Vector2(0, 1000), ratio);
-
+            _ScrollVlew.localPosition = Vector2.Lerp(_ScrollVlew.localPosition, poistion, ratio);
             yield return null;
         }
-        _SceneLoad.FinshRoutine();
-
-        SceneManager.LoadScene(index);
+        _ScrollVlewTrans.FinshRoutine();
     }
 }

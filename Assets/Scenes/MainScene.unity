@@ -430,7 +430,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &481384821
 GameObject:
@@ -819,7 +819,7 @@ RectTransform:
   - {fileID: 1831129426}
   - {fileID: 1177533450}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -873,6 +873,7 @@ GameObject:
   - component: {fileID: 1177533450}
   - component: {fileID: 1177533452}
   - component: {fileID: 1177533451}
+  - component: {fileID: 1177533453}
   m_Layer: 5
   m_Name: ExitText
   m_TagString: Untagged
@@ -996,6 +997,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177533449}
   m_CullTransparentMesh: 0
+--- !u!114 &1177533453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177533449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a4a4de592fda4439fe155506e88261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Images: []
+  _Fonts:
+  - {fileID: 1177533451}
 --- !u!1 &1364285832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +1021,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1364285833}
-  - component: {fileID: 1364285836}
   - component: {fileID: 1364285837}
   m_Layer: 0
   m_Name: MainScene
@@ -1026,25 +1041,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1364285836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364285832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cbfd47f14da5fc4f92785fe8afd353d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _UsingAwakeMove: 1
-  _MoveTarget: {fileID: 1831129426}
-  _TargetPosition: {x: 0, y: 0}
-  _StartPosition: {x: 0, y: 980}
-  _UsingColorChanger: 0
 --- !u!114 &1364285837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1057,7 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9f674ded444f64085ab649095d57c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ExitText: {fileID: 1177533451}
+  _ExitText: {fileID: 1177533453}
   _ScrollVlew: {fileID: 1831129426}
 --- !u!114 &1382144570 stripped
 MonoBehaviour:
@@ -1877,7 +1875,7 @@ PrefabInstance:
     - target: {fileID: 4957938592001932074, guid: d5c835a2ac4a608498a32cc576e97268,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4957938592001932074, guid: d5c835a2ac4a608498a32cc576e97268,
         type: 3}
