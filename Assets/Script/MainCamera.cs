@@ -36,13 +36,25 @@ public class MainCamera : Singleton<MainCamera>
         }
         _MoveRoutine.RoutineStopEvent += OverAction;
     }
+    public void SetColor(Color color)
+    {
+        Camera.main.backgroundColor = color;
+    }
     public void ColorChange(float time, Color color)
     {
         if (_ColorRoutine == null)
         {
             _ColorRoutine = new Coroutine(this);
         }
-        _ColorRoutine.StartRoutine(EColorChange(time, color));
+        _ColorRoutine.StartRoutine(EColorChange(time, color, false));
+    }
+    public void ColorChangeRegular(float time, Color color)
+    {
+        if (_ColorRoutine == null)
+        {
+            _ColorRoutine = new Coroutine(this);
+        }
+        _ColorRoutine.StartRoutine(EColorChange(time, color, true));
     }
     // =================== IEnumator =================== //
     private IEnumerator EShake(float power, float time)
@@ -72,13 +84,25 @@ public class MainCamera : Singleton<MainCamera>
         }
         _MoveRoutine.FinshRoutine();
     }
-    private IEnumerator EColorChange(float time, Color color)
+    private IEnumerator EColorChange(float time, Color color, bool isRegular)
     {
+        Color startColor = Camera.main.backgroundColor;
+
         for (float i = 0; i < time; i += Time.deltaTime)
         {
+            Color changeColor;
             float ratio = Mathf.Min(i, time) / time;
 
-            Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, color, ratio);
+            if (isRegular)
+            {
+                changeColor = Color.Lerp(startColor, color, ratio);
+            }
+            else
+            {
+                changeColor = Color.Lerp(Camera.main.backgroundColor, color, ratio);
+            }
+            Camera.main.backgroundColor = changeColor;
+
             yield return null;
         }
         _ColorRoutine.FinshRoutine();
