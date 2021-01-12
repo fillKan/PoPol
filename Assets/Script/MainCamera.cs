@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class MainCamera : Singleton<MainCamera>
 {
-    private Camera _MainCamera;
-
     private Coroutine _ShakeRoutine;
     private Coroutine _ColorRoutine;
     private Coroutine  _MoveRoutine;
@@ -43,7 +41,6 @@ public class MainCamera : Singleton<MainCamera>
         if (_ColorRoutine == null)
         {
             _ColorRoutine = new Coroutine(this);
-            Debug.Assert(TryGetComponent(out _MainCamera));
         }
         _ColorRoutine.StartRoutine(EColorChange(time, color));
     }
@@ -81,7 +78,7 @@ public class MainCamera : Singleton<MainCamera>
         {
             float ratio = Mathf.Min(i, time) / time;
 
-            _MainCamera.backgroundColor = Color.Lerp(_MainCamera.backgroundColor, color, ratio);
+            Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, color, ratio);
             yield return null;
         }
         _ColorRoutine.FinshRoutine();
