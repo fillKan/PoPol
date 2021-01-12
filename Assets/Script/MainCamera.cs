@@ -9,26 +9,25 @@ public class MainCamera : Singleton<MainCamera>
     private Coroutine _ColorRoutine;
     private Coroutine  _MoveRoutine;
 
-    private void Awake()
-    {
-        Debug.Assert(TryGetComponent(out _MainCamera));
-
-        _ColorRoutine = new Coroutine(this);
-        _ShakeRoutine = new Coroutine(this);
-        _ShakeRoutine.RoutineStopEvent += () => 
-        {
-            transform.localPosition = Vector2.zero;
-            transform.Translate(0, 0, -10f);
-        };
-        _MoveRoutine = new Coroutine(this);
-    }
-
     public void Shake(float power, float time)
     {
+        if (_ShakeRoutine == null)
+        {
+            _ShakeRoutine = new Coroutine(this);
+            _ShakeRoutine.RoutineStopEvent += () =>
+            {
+                transform.localPosition = Vector2.zero;
+                transform.Translate(0, 0, -10f);
+            };
+        }
         _ShakeRoutine.StartRoutine(EShake(power, time));
     }
     public void Move(float time, Vector2 start, Vector2 goal, System.Action overAction = null)
     {
+        if (_MoveRoutine == null)
+        {
+            _MoveRoutine = new Coroutine(this);
+        }
         transform.parent.position = start;
         _MoveRoutine.StartRoutine(EMove(time, goal));
 
@@ -41,6 +40,11 @@ public class MainCamera : Singleton<MainCamera>
     }
     public void ColorChange(float time, Color color)
     {
+        if (_ColorRoutine == null)
+        {
+            _ColorRoutine = new Coroutine(this);
+            Debug.Assert(TryGetComponent(out _MainCamera));
+        }
         _ColorRoutine.StartRoutine(EColorChange(time, color));
     }
     // =================== IEnumator =================== //
