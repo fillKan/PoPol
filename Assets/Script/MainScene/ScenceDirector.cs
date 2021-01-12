@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ScenceDirector : MonoBehaviour
 {
     [SerializeField] private bool _UsingAwakeMove;
-    [SerializeField] private Transform _MoveTarget;
+
     [SerializeField] private Vector2 _TargetPosition;
     [SerializeField] private Vector2 _StartPosition;
 
@@ -20,14 +18,7 @@ public class ScenceDirector : MonoBehaviour
 
         if (_UsingAwakeMove)
         {
-            if (_MoveTarget == null)
-            {
-                MainCamera.Instance.Move(2.5f, _StartPosition, _TargetPosition);
-            }
-            else
-            {
-                _ObjectMove.StartRoutine(EObjectMove(_TargetPosition, 2.5f));
-            }
+            MainCamera.Instance.Move(2.5f, _StartPosition, _TargetPosition);
         };
     }
     private void Update()
@@ -50,18 +41,5 @@ public class ScenceDirector : MonoBehaviour
                 SceneManager.LoadScene(0);
             }
         }
-    }
-    private IEnumerator EObjectMove(Vector2 poistion, float time)
-    {
-        _MoveTarget.localPosition = _StartPosition;
-
-        for (float i = 0f; i < time; i += Time.deltaTime)
-        {
-            float ratio = Mathf.Min(i, time) / time;
-
-            _MoveTarget.localPosition = Vector2.Lerp(_MoveTarget.localPosition, poistion, ratio);
-            yield return null;
-        }
-        _ObjectMove.FinshRoutine();
     }
 }
