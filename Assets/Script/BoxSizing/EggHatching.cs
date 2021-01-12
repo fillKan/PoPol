@@ -27,18 +27,6 @@ public class EggHatching : MonoBehaviour
         {
             return Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
-        for (float i = 0f; i < 2.5f; i += Time.deltaTime)
-        {
-            float distance
-                = Mathf.Max(Vector2.Distance(transform.position, CursorPoint()) - _CursorRadius, 0f);
-
-            transform.localScale
-                = Vector2.one * Mathf.Max(_MaxScale - distance, _MinScale);
-
-            _Renderer.color = new Color(1, 1, 1, Mathf.Max(_MaxScale - distance, 0.15f));
-
-            yield return null;
-        }
         while (gameObject.activeSelf)
         {
             float distance
