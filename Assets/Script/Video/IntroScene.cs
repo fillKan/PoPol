@@ -7,9 +7,8 @@ public class IntroScene : MonoBehaviour
 {
     [SerializeField] private VideoPlayer _Video;
 
-    [Header("AlphaFader")]
+    [SerializeField] private GameObject _Orientation;
     [SerializeField] private AlphaFader _AlphaFader;
-    [SerializeField] private AlphaFader _MadeByFader;
 
     private void Awake()
     {
@@ -18,7 +17,7 @@ public class IntroScene : MonoBehaviour
     private void Start()
     {
          _AlphaFader.SetAlpha(0f);
-        _MadeByFader.SetAlpha(0f);
+        _Orientation.SetActive(false);
 
         _Video.loopPointReached += VideoPlayCompleted;
     }
@@ -38,15 +37,12 @@ public class IntroScene : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(0.5f);
-        _AlphaFader.AlphaFadeRegular(1f, 3f);
-
-        yield return new WaitForSeconds(3.5f);
-        _AlphaFader.AlphaFadeRegular(0f, 2f);
+        _AlphaFader.AlphaFadeRegular(1f, 2f);
 
         yield return new WaitForSeconds(2.5f);
-        _MadeByFader.AlphaFadeRegular(1f, 3f);
+        _AlphaFader.AlphaFadeRegular(0f, 1f);
 
-        yield return new WaitForSeconds(3.5f);
-        _MadeByFader.AlphaFadeRegular(0f, 2f);
+        yield return new WaitForSeconds(3.0f);
+        _Orientation.SetActive(true);
     }
 }
