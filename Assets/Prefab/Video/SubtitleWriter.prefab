@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 7553249476661543097}
   - component: {fileID: 9112221925455884278}
   m_Layer: 5
-  m_Name: Subtitle
+  m_Name: SubtitleWriter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

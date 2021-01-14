@@ -1069,7 +1069,7 @@ PrefabInstance:
     - target: {fileID: 7553249476661543094, guid: 89144ba48a24fed43a1284eb9e3c2be2,
         type: 3}
       propertyPath: m_Name
-      value: Subtitle
+      value: SubtitleWriter
       objectReference: {fileID: 0}
     - target: {fileID: 7553249476661543097, guid: 89144ba48a24fed43a1284eb9e3c2be2,
         type: 3}

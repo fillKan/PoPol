@@ -12,7 +12,7 @@ using UnityEngine;
  * |            |          |
  * FontSize, FontRect.w, FontRect.h
  */
-public class Subtitle : MonoBehaviour
+public class SubtitleWriter : MonoBehaviour
 {
     [SerializeField] private TMPro.TextMeshProUGUI _Text;
     [SerializeField] private RectTransform _BackGroundRect;
