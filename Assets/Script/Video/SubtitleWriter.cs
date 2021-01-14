@@ -12,7 +12,7 @@ using UnityEngine;
  * |            |          |
  * FontSize, FontRect.w, FontRect.h
  */
-public class SubtitleWriter : MonoBehaviour
+public class SubtitleWriter : Singleton<SubtitleWriter>
 {
     [SerializeField] private TMPro.TextMeshProUGUI _Text;
     [SerializeField] private RectTransform _BackGroundRect;
@@ -28,7 +28,7 @@ public class SubtitleWriter : MonoBehaviour
     }
 
     [ContextMenu("WriteSubtitle")]
-    private void WriteSubtitle()
+    public void WriteSubtitle()
     {
         if (_SubtitleCollection.MoveNext())
         {
@@ -51,7 +51,7 @@ public class SubtitleWriter : MonoBehaviour
                 = new Vector2(fontSize * maxLength * 1.1f, fontSize * newLine * 1.5f);
 
             _BackGroundRect.sizeDelta
-                = new Vector2(fontSize * maxLength * 1.1f, fontSize * newLine * 2.0f);
+                = new Vector2(fontSize * maxLength * 1.1f, fontSize * newLine * 1.8f);
         }
     }
 }

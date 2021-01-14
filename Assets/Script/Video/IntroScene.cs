@@ -21,6 +21,13 @@ public class IntroScene : MonoBehaviour
 
         _Video.loopPointReached += VideoPlayCompleted;
     }
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            SubtitleWriter.Instance.WriteSubtitle();
+        }
+    }
     private void VideoPlayCompleted(VideoPlayer source)
     {
         _Video.targetCameraAlpha = 0f;
