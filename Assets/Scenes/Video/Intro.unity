@@ -699,6 +699,7 @@ MonoBehaviour:
   _Video: {fileID: 1405378186}
   _Orientation: {fileID: 2105565459}
   _AlphaFader: {fileID: 1273722459}
+  _Animator: {fileID: 2105565462}
 --- !u!114 &1273722459
 MonoBehaviour:
   m_ObjectHideFlags: 0
