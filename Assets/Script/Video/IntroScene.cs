@@ -25,6 +25,14 @@ public class IntroScene : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            SubtitleWriter.Instance.TurnThePrevPage();
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            SubtitleWriter.Instance.TurnTheNextPage();
+        }
+        if (Input.GetMouseButtonDown(2))
+        {
             SubtitleWriter.Instance.WriteSubtitle();
         }
     }

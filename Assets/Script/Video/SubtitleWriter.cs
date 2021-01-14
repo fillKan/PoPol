@@ -14,44 +14,50 @@ using UnityEngine;
  */
 public class SubtitleWriter : Singleton<SubtitleWriter>
 {
+    [SerializeField] private int _Page = 0;
+
     [SerializeField] private TMPro.TextMeshProUGUI _Text;
     [SerializeField] private RectTransform _BackGroundRect;
 
-    [Space(10f)][TextArea(2, 4)]
-    [SerializeField] private string[] _Subtitles;
+    [Space(10f)]
+    [SerializeField] private SubtitleSet[] _SubtitleSets;
 
-    private IEnumerator _SubtitleCollection;
-
-    private void Awake()
+    public void TurnTheNextPage() 
     {
-        _SubtitleCollection = _Subtitles.GetEnumerator();
+        if (_Page < _SubtitleSets.Length - 1)
+        {
+            _Page++;
+        }
+    }
+    public void TurnThePrevPage() 
+    {
+        if (_Page > 0)
+        {
+            _Page--;
+        }
     }
 
-    [ContextMenu("WriteSubtitle")]
     public void WriteSubtitle()
     {
-        if (_SubtitleCollection.MoveNext())
+        float  fontSize = _Text.fontSize;
+        string subtitle = _SubtitleSets[_Page].NextSubtitle();
+
+        int maxLength = 0;
+        var subtitles = subtitle.Split('\n');
+        for (int i = 0; i < subtitles.Length; ++i)
         {
-            float  fontSize = _Text.fontSize;
-            string subtitle = (string)_SubtitleCollection.Current;
-
-            int maxLength = 0;
-            var subtitles = subtitle.Split('\n');
-            for (int i = 0; i < subtitles.Length; ++i)
+            if (maxLength < subtitles[i].Length)
             {
-                if (maxLength < subtitles[i].Length)
-                {
-                    maxLength = subtitles[i].Length;
-                }
+                maxLength = subtitles[i].Length;
             }
-            int newLine = subtitles.Length;
-            _Text.text  = subtitle;
-
-            _Text.rectTransform.sizeDelta
-                = new Vector2(fontSize * maxLength * 1.1f, fontSize * newLine * 1.5f);
-
-            _BackGroundRect.sizeDelta
-                = new Vector2(fontSize * maxLength * 1.1f, fontSize * newLine * 1.8f);
         }
+        int newLine = subtitles.Length;
+        _Text.text = subtitle;
+
+        _Text.rectTransform.sizeDelta
+            = new Vector2(fontSize * maxLength * 1.1f, fontSize * newLine * 1.5f);
+
+        _BackGroundRect.sizeDelta
+            = new Vector2(fontSize * maxLength * 1.1f, fontSize * newLine * 1.8f);
     }
 }
