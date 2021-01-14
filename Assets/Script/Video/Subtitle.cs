@@ -25,13 +25,33 @@ public class Subtitle : MonoBehaviour
     private void Awake()
     {
         _SubtitleCollection = _Subtitles.GetEnumerator();
-        _SubtitleCollection.MoveNext();
+    }
 
-        _Text.text = (string)_SubtitleCollection.Current;
+    [ContextMenu("WriteSubtitle")]
+    private void WriteSubtitle()
+    {
+        if (_SubtitleCollection.MoveNext())
+        {
+            float  fontSize = _Text.fontSize;
+            string subtitle = (string)_SubtitleCollection.Current;
 
-        int blankCount = _Text.text.Split(' ').Length - 1;
+            int maxLength = 0;
+            var subtitles = subtitle.Split('\n');
+            for (int i = 0; i < subtitles.Length; ++i)
+            {
+                if (maxLength < subtitles[i].Length)
+                {
+                    maxLength = subtitles[i].Length;
+                }
+            }
+            int newLine = subtitles.Length;
+            _Text.text  = subtitle;
 
-        _Text.rectTransform.sizeDelta = new Vector2(_Text.fontSize * _Text.text.Length * 1.1f, _Text.fontSize * 1.5f);
-        _BackGroundRect.sizeDelta = new Vector2(_Text.fontSize * _Text.text.Length * 1.1f, _Text.fontSize * 2f);
+            _Text.rectTransform.sizeDelta
+                = new Vector2(fontSize * maxLength * 1.1f, fontSize * newLine * 1.5f);
+
+            _BackGroundRect.sizeDelta
+                = new Vector2(fontSize * maxLength * 1.1f, fontSize * newLine * 2.0f);
+        }
     }
 }
