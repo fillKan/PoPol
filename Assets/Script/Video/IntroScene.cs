@@ -20,6 +20,8 @@ public class IntroScene : MonoBehaviour
         _Orientation.SetActive(false);
 
         _Video.loopPointReached += VideoPlayCompleted;
+
+        SubtitleWriter.Instance.PageOverEvent += i => { Debug.Log("AAA"); };
     }
     private void Update()
     {

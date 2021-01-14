@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +14,8 @@ using UnityEngine;
  */
 public class SubtitleWriter : Singleton<SubtitleWriter>
 {
+    public event Action<int> PageOverEvent;
+
     private int _Page = 0;
 
     [SerializeField] private TMPro.TextMeshProUGUI _Text;
@@ -42,6 +44,10 @@ public class SubtitleWriter : Singleton<SubtitleWriter>
         float  fontSize = _Text.fontSize;
         string subtitle = _SubtitleSets[_Page].NextSubtitle();
 
+        if (subtitle.Length == 0)
+        {
+            PageOverEvent?.Invoke(_Page);
+        }
         int maxLength = 0;
         var subtitles = subtitle.Split('\n');
         for (int i = 0; i < subtitles.Length; ++i)
