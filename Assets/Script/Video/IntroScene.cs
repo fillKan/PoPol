@@ -5,10 +5,13 @@ using UnityEngine.Video;
 
 public class IntroScene : MonoBehaviour
 {
+    [Header("Intro Direction")]
     [SerializeField] private VideoPlayer _Video;
-
-    [SerializeField] private GameObject _Orientation;
     [SerializeField] private AlphaFader _AlphaFader;
+
+    [Header("Orientation Object")]
+    [SerializeField] private GameObject _Orientation;
+    [SerializeField] private Animator _Animator;
 
     private void Awake()
     {
@@ -20,6 +23,31 @@ public class IntroScene : MonoBehaviour
         _Orientation.SetActive(false);
 
         _Video.loopPointReached += VideoPlayCompleted;
+
+        SubtitleWriter.Instance.PageOverEvent += i => 
+        {
+            if (i == 0)
+            {
+                int hash = _Animator.GetParameter(0).nameHash;
+
+                _Animator.SetBool(hash, true);
+            }
+        };
+    }
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            SubtitleWriter.Instance.TurnThePrevPage();
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            SubtitleWriter.Instance.TurnTheNextPage();
+        }
+        if (Input.GetMouseButtonDown(2))
+        {
+            SubtitleWriter.Instance.WriteSubtitle();
+        }
     }
     private void VideoPlayCompleted(VideoPlayer source)
     {
