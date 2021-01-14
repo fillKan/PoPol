@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 520, y: 70}
+  m_SizeDelta: {x: 144, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7553249475348968223
 CanvasRenderer:
@@ -109,7 +109,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 440, y: 55}
+  m_SizeDelta: {x: 88, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7553249476076741007
 CanvasRenderer:
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC5EC \uD788\uC0AC\uC2DC\uBD80\uB9AC~\uB3C8\uBD80\uB9AC~"
+  m_text: "\uC5EC\uC5B4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: af98f9132f9a0aa49b19264e118c20e4, type: 2}
   m_sharedMaterial: {fileID: 873622933941734132, guid: af98f9132f9a0aa49b19264e118c20e4,
@@ -258,4 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bfe85789f022f458c54d9cd019a9a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Subtitle: "\uC5EC \uD788\uC0AC\uC2DC\uBD80\uB9AC~\uBBFC\uB098\uC0C1~\uB3C8\uBD80\uB9AC~\uC6A7\uCFE0\uB9AC~"
+  _Text: {fileID: 7553249476076741004}
+  _BackGroundRect: {fileID: 7553249475348968221}
+  _Subtitles:
+  - "\uC5EC\uC5B4 \uD788\uC0AC\uC2DC\uBD80\uB9AC~\uB3C8\uBD80\uB9AC~\uBC0B\uB098\uC0C1"
