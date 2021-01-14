@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
 public class IntroScene : MonoBehaviour
 {
+    private const int MainSceneBuildIndex = 5;
+
     [Header("Intro Direction")]
     [SerializeField] private VideoPlayer _Video;
     [SerializeField] private AlphaFader _AlphaFader;
@@ -13,9 +16,13 @@ public class IntroScene : MonoBehaviour
     [SerializeField] private GameObject _Orientation;
     [SerializeField] private Animator _Animator;
 
+    private Coroutine _MainSceneLoad;
+
     private void Awake()
     {
         MainCamera.Instance.SetColor(Color.black);
+
+        _MainSceneLoad = new Coroutine(this);
     }
     private void Start()
     {
@@ -26,11 +33,9 @@ public class IntroScene : MonoBehaviour
 
         SubtitleWriter.Instance.PageOverEvent += i => 
         {
-            if (i == 0)
+            if (i == 0 && !_MainSceneLoad.IsDuration())
             {
-                int hash = _Animator.GetParameter(0).nameHash;
-
-                _Animator.SetBool(hash, true);
+                _MainSceneLoad.StartRoutine(MainSceneLoad(1.4f));
             }
         };
     }
@@ -72,5 +77,16 @@ public class IntroScene : MonoBehaviour
 
         yield return new WaitForSeconds(3.0f);
         _Orientation.SetActive(true);
+    }
+
+    private IEnumerator MainSceneLoad(float animTime)
+    {
+        int hash = _Animator.GetParameter(0).nameHash;
+        _Animator.SetBool(hash, true);
+
+        yield return new WaitForSeconds(animTime);
+        
+        _MainSceneLoad.FinshRoutine();
+        SceneManager.LoadScene(MainSceneBuildIndex);
     }
 }
