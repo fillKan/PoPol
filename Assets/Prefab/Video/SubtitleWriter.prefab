@@ -260,5 +260,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Text: {fileID: 7553249476076741004}
   _BackGroundRect: {fileID: 7553249475348968221}
-  _Subtitles:
-  - "\uC5EC\uC5B4 \uD788\uC0AC\uC2DC\uBD80\uB9AC~\uB3C8\uBD80\uB9AC~\uBC0B\uB098\uC0C1"
+  _SubtitleSets:
+  - {fileID: 11400000, guid: 0b641358f9a27bb4283c0e691ff8165c, type: 2}

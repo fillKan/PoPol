@@ -14,7 +14,7 @@ using UnityEngine;
  */
 public class SubtitleWriter : Singleton<SubtitleWriter>
 {
-    [SerializeField] private int _Page = 0;
+    private int _Page = 0;
 
     [SerializeField] private TMPro.TextMeshProUGUI _Text;
     [SerializeField] private RectTransform _BackGroundRect;
@@ -59,5 +59,13 @@ public class SubtitleWriter : Singleton<SubtitleWriter>
 
         _BackGroundRect.sizeDelta
             = new Vector2(fontSize * maxLength * 1.1f, fontSize * newLine * 1.8f);
+    }
+
+    private void OnApplicationQuit()
+    {
+        for (int i = 0; i < _SubtitleSets.Length; ++i)
+        {
+            _SubtitleSets[i].Reset();
+        }
     }
 }

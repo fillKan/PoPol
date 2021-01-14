@@ -10,6 +10,10 @@ public class SubtitleSet : ScriptableObject
     [TextArea(3, 3)]
     [SerializeField] private string[] _Subtitles;
 
+    public void Reset()
+    {
+        _Index = 0;
+    }
     public string[] SubtitleAll()
     {
         return _Subtitles;

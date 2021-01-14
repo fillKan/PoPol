@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1d56ebbfe1c5704789edccb748b57e4, type: 3}
-  m_Name: InroSubtitleSet
+  m_Name: IntroSubtitleSet
   m_EditorClassIdentifier: 
+  _Index: 0
   _Subtitles:
   - "\uC5BC\uC5B4\uBD99\uC740 \uACC4\uB2E8, \uD53C\uCC98\uB7FC \uBD89\uC740 \uC735\uB2E8"
   - "\uADF8 \uC704\uC5D0 \uC549\uD78C \uAC83\uC740 \n\uBBF8\uCC98 \uB9D0\uD558\uC9C0
