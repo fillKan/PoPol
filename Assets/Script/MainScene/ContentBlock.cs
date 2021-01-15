@@ -7,8 +7,9 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
 {
     public enum AnimationType
     {
-        Open, Revert, Close
+        Open, Default, Close
     }
+
     public const float AnimationTime = 1f;
 
     public int AttachSceneIndex
@@ -69,7 +70,7 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
                 scale = 1f;
                 break;
 
-            case AnimationType.Revert:
+            case AnimationType.Default:
                 alpha = 1f;
                 scale = 0.4f;
                 break;
