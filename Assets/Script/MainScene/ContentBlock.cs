@@ -29,6 +29,7 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
     [SerializeField] private AlphaFader _SideAlphaFader;
 
     [Header("Animation")]
+    [SerializeField] private ContentAnim _AnimationInfo;
     [SerializeField] private Vector2 _TranslatePosition;
     [SerializeField] private Color _BackgroundColor;
 
@@ -60,31 +61,8 @@ public class ContentBlock : MonoBehaviour, IPointerDownHandler
     }
     public void PlayAnimation(AnimationType type)
     {
-        float alpha;
-        float scale;
+        _AnimationInfo.GetAnim(type, out float alpha, out float scale);
 
-        switch (type)
-        {
-            case AnimationType.Open:
-                alpha = 1f;
-                scale = 1f;
-                break;
-
-            case AnimationType.Default:
-                alpha = 1f;
-                scale = 0.4f;
-                break;
-
-            case AnimationType.Close:
-                alpha = 0.05f;
-                scale = 0.4f;
-                break;
-
-            default:
-                alpha = 1f;
-                scale = 1f;
-                break;
-        }
         _IsOpend = type == AnimationType.Open;
         _AnimRoutine.StartRoutine(Animation(alpha, scale));
     }
