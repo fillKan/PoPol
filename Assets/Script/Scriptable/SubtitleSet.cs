@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SubtitleSet", menuName = "Subtitle/SubtitleSet")]
+[CreateAssetMenu(fileName = "SubtitleSet", menuName = "Scriptable/SubtitleSet")]
 public class SubtitleSet : ScriptableObject
 {
     private int _Index = 0;
