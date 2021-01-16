@@ -470,6 +470,7 @@ GameObject:
   - component: {fileID: 416589231}
   - component: {fileID: 416589235}
   - component: {fileID: 416589236}
+  - component: {fileID: 416589237}
   m_Layer: 5
   m_Name: MainScene
   m_TagString: Untagged
@@ -593,6 +594,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Animator: {fileID: 416589235}
+  _AlphaFader: {fileID: 416589237}
+--- !u!114 &416589237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416589230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a4a4de592fda4439fe155506e88261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Images:
+  - {fileID: 750955974}
+  - {fileID: 1727075318}
+  _Fonts: []
 --- !u!1 &453514009
 GameObject:
   m_ObjectHideFlags: 0
@@ -2662,7 +2680,7 @@ MonoBehaviour:
   _SideAlphaFader: {fileID: 3811778065841124806}
   _AnimationInfo: {fileID: 11400000, guid: 232b2d5e8bdf39547a7f745c43195bfd, type: 2}
   _TranslatePosition: {x: 440, y: -410}
-  _BackgroundColor: {r: 0.1254902, g: 0.015686275, b: 0.18039216, a: 0}
+  _BackgroundColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &4080945148558571335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2681,7 +2699,7 @@ MonoBehaviour:
   _SideAlphaFader: {fileID: 7535230744900571723}
   _AnimationInfo: {fileID: 11400000, guid: 232b2d5e8bdf39547a7f745c43195bfd, type: 2}
   _TranslatePosition: {x: 1080, y: -410}
-  _BackgroundColor: {r: 0.13333334, g: 0.49803922, b: 1, a: 0}
+  _BackgroundColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!222 &4080945148558571337
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2778,7 +2796,7 @@ MonoBehaviour:
   _SideAlphaFader: {fileID: 8954923892932589936}
   _AnimationInfo: {fileID: 11400000, guid: 232b2d5e8bdf39547a7f745c43195bfd, type: 2}
   _TranslatePosition: {x: 760, y: -410}
-  _BackgroundColor: {r: 0.93333334, g: 0.24705882, b: 0.20392157, a: 0}
+  _BackgroundColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!222 &4080945149118352520
 CanvasRenderer:
   m_ObjectHideFlags: 0
