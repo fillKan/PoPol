@@ -19,7 +19,7 @@ public class ContentBlockController : MonoBehaviour
 
         if (isOpend)
         {
-            animationType = ContentBlock.AnimationType.Revert;
+            animationType = ContentBlock.AnimationType.Default;
         }
         else
         {
