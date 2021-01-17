@@ -609,7 +609,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Images:
   - {fileID: 750955974}
-  - {fileID: 1727075318}
   _Fonts: []
 --- !u!1 &453514009
 GameObject:
@@ -2680,7 +2679,7 @@ MonoBehaviour:
   _SideAlphaFader: {fileID: 3811778065841124806}
   _AnimationInfo: {fileID: 11400000, guid: 232b2d5e8bdf39547a7f745c43195bfd, type: 2}
   _TranslatePosition: {x: 440, y: -410}
-  _BackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  _BackgroundColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &4080945148558571335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2699,7 +2698,7 @@ MonoBehaviour:
   _SideAlphaFader: {fileID: 7535230744900571723}
   _AnimationInfo: {fileID: 11400000, guid: 232b2d5e8bdf39547a7f745c43195bfd, type: 2}
   _TranslatePosition: {x: 1080, y: -410}
-  _BackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  _BackgroundColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!222 &4080945148558571337
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2796,7 +2795,7 @@ MonoBehaviour:
   _SideAlphaFader: {fileID: 8954923892932589936}
   _AnimationInfo: {fileID: 11400000, guid: 232b2d5e8bdf39547a7f745c43195bfd, type: 2}
   _TranslatePosition: {x: 760, y: -410}
-  _BackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  _BackgroundColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!222 &4080945149118352520
 CanvasRenderer:
   m_ObjectHideFlags: 0

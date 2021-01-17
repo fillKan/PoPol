@@ -1,49 +1,65 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainScene : MonoBehaviour
 {
     [SerializeField] private Animator _Animator;
     [SerializeField] private AlphaFader _AlphaFader;
 
+    private ContentBlock[] _Sections;
+
     private void Awake()
     {
-        var sections = FindObjectsOfType<ContentBlock>();
+        _Sections = FindObjectsOfType<ContentBlock>();
 
-        for (int i = 0; i < sections.Length; i++)
+        for (int i = 0; i < _Sections.Length; i++)
         {
-            sections[i].SelectedClickEvent += section => 
+            _Sections[i].SelectedClickEvent += section => 
             {
-                // MainScene은 섹션 블럭들을 포함하는 캔버스이기 때문에 가능한 코드
-                section.transform.parent = transform;
-                section.PlayAnimation(ContentBlock.AnimationType.Default);
-                
                 StartCoroutine(Enumerator(section));
             };
         }
     }
     private IEnumerator Enumerator(ContentBlock content)
     {
-        content.TryGetComponent(out RectTransform contentRect);
-
-        yield return new WaitForSeconds(ContentBlock.AnimationTime);
-        _AlphaFader.AlphaFade (0f, ContentBlock.AnimationTime);
-
-        Vector2 center = new Vector2(960.0f, -540.0f);
-        for (float i = 0f; i < 1f; i += Time.deltaTime)
+        if (content.TryGetComponent(out RectTransform contentRect))
         {
-            float ratio = Mathf.Min(i / 1f, 1f);
+            contentRect.parent = contentRect.parent.parent;
 
-            contentRect.anchoredPosition =
-                Vector2.Lerp(contentRect.anchoredPosition, center, ratio);
+            Vector2 targetPosition = contentRect.anchoredPosition;
+                    targetPosition.y += -30f;
+            Vector2 refVelocity = Vector2.zero;
 
-            yield return null;
+            for (float i = 0f; i < 0.5f; i += Time.deltaTime)
+            {
+                contentRect.anchoredPosition =
+                    Vector2.SmoothDamp(contentRect.anchoredPosition, targetPosition, ref refVelocity, 0.3f);
+
+                yield return null;
+            }
+            bool alreadyPlayAnim = false;
+
+            _AlphaFader.SetAlpha(0f);
+
+            for (float i = 0f; i < 2.5f; i += Time.deltaTime)
+            {
+                float ratio = Mathf.Min(i / 1f, 1f);
+
+                if (ratio > 0.8f && !alreadyPlayAnim)
+                {
+                    alreadyPlayAnim = true;
+                    content.PlayAnimation(ContentBlock.AnimationType.Close);
+                }
+                contentRect.anchoredPosition =
+                    Vector2.Lerp(contentRect.anchoredPosition, new Vector2(contentRect.anchoredPosition.x, +400f), ratio);
+
+                yield return null;
+            }
+            SceneManager.LoadScene(content.AttachSceneIndex);
         }
-        contentRect.anchoredPosition = center;
     }
-
     public void AnimatorDisable()
     {
         _Animator.enabled = false;
