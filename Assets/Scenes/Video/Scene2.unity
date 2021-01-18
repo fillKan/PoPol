@@ -221,19 +221,19 @@ PrefabInstance:
         type: 3}
       propertyPath: _SubtitleSets.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 6c24e5b0a4319134fac95f0c6894d554,
+      objectReference: {fileID: 11400000, guid: 6a396421615ead7498b4ee0c3d030213,
         type: 2}
     - target: {fileID: 7031743470238753665, guid: 57ff87998c9c1c043b0e88c93cf41eb7,
         type: 3}
       propertyPath: _SubtitleSets.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 0e15f8d2132c0344bbd799c7998c7dc2,
+      objectReference: {fileID: 11400000, guid: 8fa197ed88361fe4db64b4f1a4c252fd,
         type: 2}
     - target: {fileID: 7031743470238753665, guid: 57ff87998c9c1c043b0e88c93cf41eb7,
         type: 3}
       propertyPath: _SubtitleSets.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 8079db4cc771f5343a32d37a1bcec87e,
+      objectReference: {fileID: 11400000, guid: c5d5f9b77f0ff414ab1e4af2f56f3dfc,
         type: 2}
     - target: {fileID: 8589016083866855258, guid: 57ff87998c9c1c043b0e88c93cf41eb7,
         type: 3}
