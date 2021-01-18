@@ -6,7 +6,7 @@ using UnityEngine.Video;
 
 public class IntroScene : MonoBehaviour
 {
-    private const int MainSceneBuildIndex = 5;
+    public const int MainSceneBuildIndex = 5;
 
     [Header("Intro Direction")]
     [SerializeField] private VideoPlayer _Video;
