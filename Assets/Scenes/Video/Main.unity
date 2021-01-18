@@ -2673,7 +2673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376271d6c338e8540b6a29d96e6ac93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _AttachSceneIndex: 3
+  _AttachSceneIndex: 8
   _Controller: {fileID: 1283185615}
   _ThisAlphaFader: {fileID: 3642674890225326793}
   _SideAlphaFader: {fileID: 3811778065841124806}
