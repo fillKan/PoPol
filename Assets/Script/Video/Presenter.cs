@@ -20,6 +20,11 @@ public class Presenter : MonoBehaviour
     {
         _AlphaFader.SetAlpha(0f);
         _AlphaFader.AlphaFadeRegular(1f, 1.5f);
+
+        SubtitleWriter.Instance.PageOverEvent += page => 
+        {
+            SubtitleWriter.Instance.TurnTheNextPage();
+        };
     }
 
     private void Update()

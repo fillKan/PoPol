@@ -208,6 +208,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7031743470238753665, guid: 57ff87998c9c1c043b0e88c93cf41eb7,
+        type: 3}
+      propertyPath: _SubtitleSets.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031743470238753665, guid: 57ff87998c9c1c043b0e88c93cf41eb7,
+        type: 3}
+      propertyPath: _SubtitleSets.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6c24e5b0a4319134fac95f0c6894d554,
+        type: 2}
+    - target: {fileID: 7031743470238753665, guid: 57ff87998c9c1c043b0e88c93cf41eb7,
+        type: 3}
+      propertyPath: _SubtitleSets.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e15f8d2132c0344bbd799c7998c7dc2,
+        type: 2}
+    - target: {fileID: 7031743470238753665, guid: 57ff87998c9c1c043b0e88c93cf41eb7,
+        type: 3}
+      propertyPath: _SubtitleSets.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8079db4cc771f5343a32d37a1bcec87e,
+        type: 2}
     - target: {fileID: 8589016083866855258, guid: 57ff87998c9c1c043b0e88c93cf41eb7,
         type: 3}
       propertyPath: m_Pivot.x
