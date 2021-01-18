@@ -67,7 +67,7 @@ public class SubtitleWriter : Singleton<SubtitleWriter>
             = new Vector2(fontSize * maxLength * 1.1f, fontSize * newLine * 1.8f);
     }
 
-    private void OnApplicationQuit()
+    private void OnDestroy()
     {
         for (int i = 0; i < _SubtitleSets.Length; ++i)
         {
