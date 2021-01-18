@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Presenter : MonoBehaviour
 {
+    [SerializeField] private AlphaFader _AlphaFader;
     [SerializeField] private Image _Image;
 
     [Header("Presentation Sprite")]
@@ -13,7 +14,12 @@ public class Presenter : MonoBehaviour
 
     private void Awake()
     {
-        _Index = 0;
+        _Index = 1;
+    }
+    private void Start()
+    {
+        _AlphaFader.SetAlpha(0f);
+        _AlphaFader.AlphaFadeRegular(1f, 1.5f);
     }
 
     private void Update()

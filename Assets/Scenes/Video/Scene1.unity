@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 154957320}
   - component: {fileID: 154957321}
+  - component: {fileID: 154957322}
   m_Layer: 0
   m_Name: Presenter
   m_TagString: Untagged
@@ -164,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bada2a0498650dc428831e73d4950842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _AlphaFader: {fileID: 154957322}
   _Image: {fileID: 1835845785}
   _Pages:
   - {fileID: 21300000, guid: a1c73e1500d3fff4f827fa65c6e77187, type: 3}
@@ -184,6 +186,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 96e3145c7a05ff5418278ac3c73a85ff, type: 3}
   - {fileID: 21300000, guid: 5f60d47f6f0b3bc4691e5da610eda4d8, type: 3}
   - {fileID: 21300000, guid: b1dbf8ebd65ed7c4aa122abbe3e5efb6, type: 3}
+--- !u!114 &154957322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154957319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a4a4de592fda4439fe155506e88261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Images:
+  - {fileID: 1835845785}
+  _Fonts: []
 --- !u!1001 &278775137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -443,7 +460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a1c73e1500d3fff4f827fa65c6e77187, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
