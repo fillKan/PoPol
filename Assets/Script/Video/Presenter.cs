@@ -31,5 +31,9 @@ public class Presenter : MonoBehaviour
                 _Image.sprite = _Pages[_Index++];
             }
         }
+        if (Input.GetMouseButtonDown(2))
+        {
+            SubtitleWriter.Instance.WriteSubtitle();
+        }
     }
 }
