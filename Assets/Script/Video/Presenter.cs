@@ -17,6 +17,9 @@ public class Presenter : MonoBehaviour
 
     [Header("Presentation Sprite")]
     [SerializeField] private Sprite[] _Pages;
+
+    [SerializeField] private bool Last;
+    [SerializeField] private GameObject Li;
     private int _Index;
 
     private void Awake()
@@ -39,6 +42,10 @@ public class Presenter : MonoBehaviour
             if (page == 2)
             {
                 StartCoroutine(SceneLoad(1.5f));
+            }
+            if (Last)
+            {
+                Li.SetActive(true);
             }
         };
     }

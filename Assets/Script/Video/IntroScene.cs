@@ -78,16 +78,16 @@ public class IntroScene : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         _AlphaFader.AlphaFadeRegular(0f, 1f);
 
-        yield return new WaitForSeconds(3.0f);
-        _Orientation.SetActive(true);
-
         _Audio.VoulmeCotrol(4.5f, _Volume);
         _Audio.Play();
+
+        yield return new WaitForSeconds(3.0f);
+        _Orientation.SetActive(true);
     }
 
     private IEnumerator MainSceneLoad(float animTime)
     {
-        _Audio.VoulmeCotrol(animTime * 0.9f, 0f);
+        _Audio.VoulmeCotrol(animTime, 0f);
 
         int hash = _Animator.GetParameter(0).nameHash;
         _Animator.SetBool(hash, true);

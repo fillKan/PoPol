@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _BackgroundMusic: {fileID: 443822083}
-  _Volume: 0.35
+  _Volume: 0.1
   _MetalicBG: {fileID: 293588971}
   _AlphaFader: {fileID: 154957322}
   _Image: {fileID: 1835845785}
@@ -464,7 +464,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7c3a4dce9c4c16741a5d2e7f76712b14, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 390519ec68e89314ab8a55ca6ddaae25, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
@@ -876,7 +876,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
