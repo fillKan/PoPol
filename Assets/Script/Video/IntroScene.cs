@@ -8,6 +8,9 @@ public class IntroScene : MonoBehaviour
 {
     public const int MainSceneBuildIndex = 5;
 
+    [SerializeField] private Audio _Audio;
+    [SerializeField] private float _Volume;
+
     [Header("Intro Direction")]
     [SerializeField] private VideoPlayer _Video;
     [SerializeField] private AlphaFader _AlphaFader;
@@ -75,12 +78,17 @@ public class IntroScene : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         _AlphaFader.AlphaFadeRegular(0f, 1f);
 
+        _Audio.VoulmeCotrol(4.5f, _Volume);
+        _Audio.Play();
+
         yield return new WaitForSeconds(3.0f);
         _Orientation.SetActive(true);
     }
 
     private IEnumerator MainSceneLoad(float animTime)
     {
+        _Audio.VoulmeCotrol(animTime, 0f);
+
         int hash = _Animator.GetParameter(0).nameHash;
         _Animator.SetBool(hash, true);
 

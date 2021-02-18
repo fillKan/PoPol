@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainScene : MonoBehaviour
 {
+    [SerializeField] private Audio _Audio;
+    [SerializeField] private float _Volume;
+
+    [Space()]
     [SerializeField] private Animator _Animator;
     [SerializeField] private AlphaFader _AlphaFader;
 
@@ -21,11 +25,14 @@ public class MainScene : MonoBehaviour
                 StartCoroutine(Enumerator(section));
             };
         }
+        _Audio.VoulmeCotrol(3f, _Volume);
     }
     private IEnumerator Enumerator(ContentBlock content)
     {
         if (content.TryGetComponent(out RectTransform contentRect))
         {
+            _Audio.VoulmeCotrol(3f, 0f);
+
             contentRect.parent = contentRect.parent.parent;
 
             Vector2 targetPosition = contentRect.anchoredPosition;
