@@ -17,4 +17,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PolarCoord.unity
     guid: fecd737c4ab373c45a32e4d222a3d1ca
+  - enabled: 1
+    path: Assets/Scenes/Video/Intro.unity
+    guid: fea3b4c2d9e19c2479a1b4e5fe70a8e1
+  - enabled: 1
+    path: Assets/Scenes/Video/Main.unity
+    guid: 521919b8869eb9e4d9e2b9c6fc4bf89d
+  - enabled: 1
+    path: Assets/Scenes/Video/Scene1.unity
+    guid: 7318125d70038d54987e503eb468bb0f
+  - enabled: 1
+    path: Assets/Scenes/Video/Scene2.unity
+    guid: 5985e904e39a95b4dab42355d0bbc064
+  - enabled: 1
+    path: Assets/Scenes/Video/Scene3.unity
+    guid: 168ec7e76f7c7eb4a8105a4068ad94d1
   m_configObjects: {}

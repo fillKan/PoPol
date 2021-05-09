@@ -89,9 +89,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _AttachSceneIndex: 0
-  _Controler: {fileID: 0}
+  _Controller: {fileID: 0}
   _ThisAlphaFader: {fileID: 3722940824215120076}
   _SideAlphaFader: {fileID: 0}
+  _AnimationInfo: {fileID: 11400000, guid: 052e1e1bf307cc04dbc04b4b88f86d88, type: 2}
   _TranslatePosition: {x: 0, y: 0}
   _BackgroundColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3722940824215120076
